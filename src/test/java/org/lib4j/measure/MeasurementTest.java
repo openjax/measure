@@ -28,7 +28,7 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 import org.lib4j.measure.Dimension.Unit;
-import org.safris.commons.util.Combinations;
+import org.lib4j.util.Combinations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
