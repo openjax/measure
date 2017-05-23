@@ -14,19 +14,20 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.safris.commons.measure;
+package org.lib4j.measure;
 
-public final class Volume extends Dimension.Scalar<Dimension.Unit> {
+public final class Mass extends Dimension.Scalar<Dimension.Unit> {
   public static class Unit extends Dimension.Unit {
-    public static final Unit L = new Unit("l", 1, null);
-    public static final Unit ML = new Unit("ml", 0.01, Unit.L);
+    public static final Unit G = new Unit("g", 1, null);
+    public static final Unit KG = new Unit("kg", 1000, Unit.G);
+    public static final Unit CT = new Unit("ct", 5, Unit.G);
     
     protected Unit(final String name, final double factor, final Dimension.Unit basis) {
       super(name, factor, basis);
     }
   }
   
-  public Volume(final double value, final Unit unit) {
+  public Mass(final double value, final Unit unit) {
     super(value, unit);
   }
 }

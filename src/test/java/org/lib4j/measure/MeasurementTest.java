@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.safris.commons.measure;
+package org.lib4j.measure;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -27,7 +27,7 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.safris.commons.measure.Dimension.Unit;
+import org.lib4j.measure.Dimension.Unit;
 import org.safris.commons.util.Combinations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

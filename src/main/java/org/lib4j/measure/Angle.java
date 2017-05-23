@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.safris.commons.measure;
+package org.lib4j.measure;
 
 public final class Angle extends Dimension.Scalar<Dimension.Unit> {
   public static class Unit extends Dimension.Unit {

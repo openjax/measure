@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.safris.commons.measure;
+package org.lib4j.measure;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -14,22 +14,19 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.safris.commons.measure;
+package org.lib4j.measure;
 
-public final class Time extends Dimension.Scalar<Dimension.Unit> {
+public final class Volume extends Dimension.Scalar<Dimension.Unit> {
   public static class Unit extends Dimension.Unit {
-    public static final Unit SEC = new Unit("sec", 1, null);
-    public static final Unit MIN = new Unit("min", 60, Unit.SEC);
-    public static final Unit HR = new Unit("hr", 60, Unit.MIN);
-    public static final Unit DAY = new Unit("day", 24, Unit.HR);
-    public static final Unit WK = new Unit("wk", 7, Unit.DAY);
+    public static final Unit L = new Unit("l", 1, null);
+    public static final Unit ML = new Unit("ml", 0.01, Unit.L);
     
     protected Unit(final String name, final double factor, final Dimension.Unit basis) {
       super(name, factor, basis);
     }
   }
   
-  public Time(final double value, final Unit unit) {
+  public Volume(final double value, final Unit unit) {
     super(value, unit);
   }
 }
