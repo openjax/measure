@@ -36,7 +36,7 @@ public class MeasurementTest {
   private static final Logger logger = LoggerFactory.getLogger(MeasurementTest.class);
 
   private static Dimension.Unit[] getUnits(final Class<?> unitClass) throws Exception {
-    final List<Dimension.Unit> units = new ArrayList<Dimension.Unit>();
+    final List<Dimension.Unit> units = new ArrayList<>();
     final Field[] fields = unitClass.getDeclaredFields();
     for (final Field field : fields) {
       field.setAccessible(true);
@@ -54,7 +54,7 @@ public class MeasurementTest {
     return args;
   }
 
-  private static final Map<Class<?>,Method> unitFactoryMethods = new HashMap<Class<?>,Method>();
+  private static final Map<Class<?>,Method> unitFactoryMethods = new HashMap<>();
 
   private static Method getFactoryMethod(final Class<?> unitClass) {
     if (unitClass.getDeclaringClass() != Dimension.Unit.class)

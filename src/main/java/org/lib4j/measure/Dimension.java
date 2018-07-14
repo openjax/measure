@@ -21,7 +21,7 @@ import java.util.Map;
 
 public abstract class Dimension {
   protected static abstract class Unit {
-    private static final Map<String,Ratio<?,?>> ratios = new HashMap<String,Ratio<?,?>>();
+    private static final Map<String,Ratio<?,?>> ratios = new HashMap<>();
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static <N extends Unit,D extends Unit>Ratio<N,D> ratio(final N numerator, final D denominator) {
@@ -35,7 +35,7 @@ public abstract class Dimension {
         if (unit != null)
           return unit;
 
-        ratios.put(name, unit = new Ratio<N,D>(name, numerator.factor / denominator.factor, numerator, denominator));
+        ratios.put(name, unit = new Ratio<>(name, numerator.factor / denominator.factor, numerator, denominator));
       }
 
       return unit;
@@ -54,7 +54,7 @@ public abstract class Dimension {
       }
     }
 
-    private static final Map<String,Product<?,?>> products = new HashMap<String,Product<?,?>>();
+    private static final Map<String,Product<?,?>> products = new HashMap<>();
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static <F extends Unit,S extends Unit>Product<F,S> produc(final F first, final S second) {
@@ -68,7 +68,7 @@ public abstract class Dimension {
         if (unit != null)
           return unit;
 
-        products.put(name, unit = new Product<F,S>(name, first.factor / second.factor, first, second));
+        products.put(name, unit = new Product<>(name, first.factor / second.factor, first, second));
       }
 
       return unit;
@@ -87,12 +87,12 @@ public abstract class Dimension {
       }
     }
 
-    private static final Map<Unit,Map<Unit,Double>> basisToUnitFactors = new HashMap<Unit,Map<Unit,Double>>();
+    private static final Map<Unit,Map<Unit,Double>> basisToUnitFactors = new HashMap<>();
 
     private static Map<Unit,Double> register(final Unit from, final Unit to, final double factor) {
       Map<Unit,Double> unitToFactor = basisToUnitFactors.get(to);
       if (unitToFactor == null)
-        basisToUnitFactors.put(to, unitToFactor = new HashMap<Unit,Double>());
+        basisToUnitFactors.put(to, unitToFactor = new HashMap<>());
 
       unitToFactor.put(from, factor);
       return unitToFactor;
@@ -117,7 +117,7 @@ public abstract class Dimension {
     }
 
     // FIXME: This is not used yet
-    private static final Map<Class<?>,Unit> defaults = new HashMap<Class<?>,Unit>();
+    private static final Map<Class<?>,Unit> defaults = new HashMap<>();
 
     protected final String name;
     protected final double factor;
