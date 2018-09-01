@@ -178,11 +178,10 @@ public abstract class Dimension {
     protected final U unit;
 
     protected Scalar(final double value, final U unit) {
-      if (unit == null)
-        throw new IllegalArgumentException("unit == null");
-
       this.unit = unit;
       this.value = value;
+      if (unit == null)
+        throw new IllegalArgumentException("unit == null");
     }
 
     protected Scalar<U> replicate(final double value) {
