@@ -41,8 +41,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.lib4j</groupId>
-      <artifactId>lib4j-util</artifactId>
+      <groupId>org.fastjax</groupId>
+      <artifactId>fastjax-util</artifactId>
+      <version>1.5.9-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>
