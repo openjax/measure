@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 lib4j
+/* Copyright (c) 2014 FastJAX
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,12 +14,20 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.lib4j.measure;
+package org.fastjax.measure;
 
-import org.lib4j.measure.Dimension.Unit;
-
-public final class Density extends Dimension.Scalar<Unit.Ratio<Mass.Unit,Volume.Unit>> {
-  public Density(final double value, final Unit.Ratio<Mass.Unit,Volume.Unit> unit) {
+public final class Mass extends Dimension.Scalar<Dimension.Unit> {
+  public static class Unit extends Dimension.Unit {
+    public static final Unit G = new Unit("g", 1, null);
+    public static final Unit KG = new Unit("kg", 1000, Unit.G);
+    public static final Unit CT = new Unit("ct", 5, Unit.G);
+    
+    protected Unit(final String name, final double factor, final Dimension.Unit basis) {
+      super(name, factor, basis);
+    }
+  }
+  
+  public Mass(final double value, final Unit unit) {
     super(value, unit);
   }
 }
