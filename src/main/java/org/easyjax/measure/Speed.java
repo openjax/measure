@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2014 EasyJAX
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,22 +14,12 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.measure;
+package org.easyjax.measure;
 
-public final class Time extends Dimension.Scalar<Dimension.Unit> {
-  public static class Unit extends Dimension.Unit {
-    public static final Unit SEC = new Unit("sec", 1, null);
-    public static final Unit MIN = new Unit("min", 60, Unit.SEC);
-    public static final Unit HR = new Unit("hr", 60, Unit.MIN);
-    public static final Unit DAY = new Unit("day", 24, Unit.HR);
-    public static final Unit WK = new Unit("wk", 7, Unit.DAY);
-    
-    protected Unit(final String name, final double factor, final Dimension.Unit basis) {
-      super(name, factor, basis);
-    }
-  }
-  
-  public Time(final double value, final Unit unit) {
+import org.easyjax.measure.Dimension.Unit;
+
+public final class Speed extends Dimension.Scalar<Unit.Ratio<Distance.Unit,Time.Unit>> {
+  public Speed(final double value, final Unit.Ratio<Distance.Unit,Time.Unit> unit) {
     super(value, unit);
   }
 }

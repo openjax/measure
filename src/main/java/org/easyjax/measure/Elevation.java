@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2014 EasyJAX
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,20 +14,18 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.measure;
+package org.easyjax.measure;
 
-public final class Mass extends Dimension.Scalar<Dimension.Unit> {
-  public static class Unit extends Dimension.Unit {
-    public static final Unit G = new Unit("g", 1, null);
-    public static final Unit KG = new Unit("kg", 1000, Unit.G);
-    public static final Unit CT = new Unit("ct", 5, Unit.G);
+public final class Elevation extends Dimension.Scalar<Dimension.Unit> {
+  public static class Unit extends Distance.Unit {
+    public static final Unit FL = new Unit("fl", 100, Unit.FT);
     
-    protected Unit(final String name, final double factor, final Dimension.Unit basis) {
+    protected Unit(final String name, final double factor, final Distance.Unit basis) {
       super(name, factor, basis);
     }
   }
   
-  public Mass(final double value, final Unit unit) {
+  public Elevation(final double value, final Distance.Unit unit) {
     super(value, unit);
   }
 }

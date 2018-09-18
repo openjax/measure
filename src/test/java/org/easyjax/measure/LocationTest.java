@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2014 EasyJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,11 +14,11 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.measure;
+package org.easyjax.measure;
 
-import org.fastjax.measure.Angle;
-import org.fastjax.measure.Distance;
-import org.fastjax.measure.Location;
+import org.easyjax.measure.Angle;
+import org.easyjax.measure.Distance;
+import org.easyjax.measure.Location;
 import org.junit.Assert;
 import org.junit.Test;
 

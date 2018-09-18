@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2014 EasyJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.measure;
+package org.easyjax.measure;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -27,17 +27,17 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.fastjax.measure.Angle;
-import org.fastjax.measure.Density;
-import org.fastjax.measure.Dimension;
-import org.fastjax.measure.Distance;
-import org.fastjax.measure.Elevation;
-import org.fastjax.measure.Mass;
-import org.fastjax.measure.Speed;
-import org.fastjax.measure.Time;
-import org.fastjax.measure.Velocity;
-import org.fastjax.measure.Volume;
-import org.fastjax.measure.Dimension.Unit;
+import org.easyjax.measure.Angle;
+import org.easyjax.measure.Density;
+import org.easyjax.measure.Dimension;
+import org.easyjax.measure.Distance;
+import org.easyjax.measure.Elevation;
+import org.easyjax.measure.Mass;
+import org.easyjax.measure.Speed;
+import org.easyjax.measure.Time;
+import org.easyjax.measure.Velocity;
+import org.easyjax.measure.Volume;
+import org.easyjax.measure.Dimension.Unit;
 import org.fastjax.util.Combinations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
