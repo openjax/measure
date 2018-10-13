@@ -16,6 +16,8 @@
 
 package org.easyjax.measure;
 
+import static org.junit.Assert.*;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -25,20 +27,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.easyjax.measure.Angle;
-import org.easyjax.measure.Density;
-import org.easyjax.measure.Dimension;
-import org.easyjax.measure.Distance;
-import org.easyjax.measure.Elevation;
-import org.easyjax.measure.Mass;
-import org.easyjax.measure.Speed;
-import org.easyjax.measure.Time;
-import org.easyjax.measure.Velocity;
-import org.easyjax.measure.Volume;
 import org.easyjax.measure.Dimension.Unit;
 import org.fastjax.util.Combinations;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -120,7 +111,7 @@ public class MeasurementTest {
             final double scalar = (double)method.invoke(measurement, toArgs);
             final Object measurement2 = constructor.newInstance(toArgs(scalar, toArgs));
             final double back = (double)method.invoke(measurement2, fromArgs);
-            Assert.assertEquals(value, back, 0.000001);
+            assertEquals(value, back, 0.000001);
             logger.info(measurement + " = " + measurement2 + " = " + constructor.newInstance(toArgs(back, fromArgs)) + " [OK]");
           }
         }

@@ -16,8 +16,8 @@
 
 package org.easyjax.measure;
 
-import org.easyjax.measure.Angle;
-import org.junit.Assert;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class AngleTest {
@@ -25,9 +25,9 @@ public class AngleTest {
   public void testDMS() {
     final Angle latitude = new Angle(3.58324, Angle.Unit.DEG);
     final Angle longitude = new Angle(4.59202, Angle.Unit.DEG);
-    Assert.assertEquals("3˚34'59.664\"", latitude.toDMS());
-    Assert.assertEquals("4˚35'31.272\"", longitude.toDMS());
-    Assert.assertEquals(latitude, new Angle(latitude.toDMS()));
-    Assert.assertEquals(longitude, new Angle(longitude.toDMS()));
+    assertEquals("3˚34'59.664\"", latitude.toDMS());
+    assertEquals("4˚35'31.272\"", longitude.toDMS());
+    assertEquals(latitude, new Angle(latitude.toDMS()));
+    assertEquals(longitude, new Angle(longitude.toDMS()));
   }
 }
