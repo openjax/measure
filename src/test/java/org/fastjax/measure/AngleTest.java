@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 EasyJAX
+/* Copyright (c) 2014 FastJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,23 +14,21 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.easyjax.measure;
+package org.fastjax.measure;
 
 import static org.junit.Assert.*;
 
+import org.fastjax.measure.Angle;
 import org.junit.Test;
 
-public class LocationTest {
+public class AngleTest {
   @Test
-  public void testLocation() throws Exception {
-    final Angle lat = new Angle(38.898556, Angle.Unit.DEG);
-    final Location l1 = new Location(lat, new Angle(-77.037852, Angle.Unit.DEG));
-    final Location l2 = new Location(lat, new Angle(-77.043934, Angle.Unit.DEG));
-    final Distance expected = new Distance(0.5269164586229639, Distance.Unit.KM);
-    assertEquals(expected, l1.distance(l2));
-
-    final Location location = expected.locate(new Location(lat, new Angle(0, Angle.Unit.DEG)), new Angle(90, Angle.Unit.DEG));
-    final double dlng = 77.037852 - 77.043934;
-    assertEquals(dlng, location.longitude.value(Angle.Unit.DEG), 0.0000000001);
+  public void testDMS() {
+    final Angle latitude = new Angle(3.58324, Angle.Unit.DEG);
+    final Angle longitude = new Angle(4.59202, Angle.Unit.DEG);
+    assertEquals("3˚34'59.664\"", latitude.toDMS());
+    assertEquals("4˚35'31.272\"", longitude.toDMS());
+    assertEquals(latitude, new Angle(latitude.toDMS()));
+    assertEquals(longitude, new Angle(longitude.toDMS()));
   }
 }

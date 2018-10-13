@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 EasyJAX
+/* Copyright (c) 2014 FastJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.easyjax.measure;
+package org.fastjax.measure;
 
 import static org.junit.Assert.*;
 
@@ -27,7 +27,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.easyjax.measure.Dimension.Unit;
+import org.fastjax.measure.Angle;
+import org.fastjax.measure.Density;
+import org.fastjax.measure.Dimension;
+import org.fastjax.measure.Distance;
+import org.fastjax.measure.Elevation;
+import org.fastjax.measure.Mass;
+import org.fastjax.measure.Speed;
+import org.fastjax.measure.Time;
+import org.fastjax.measure.Velocity;
+import org.fastjax.measure.Volume;
+import org.fastjax.measure.Dimension.Unit;
 import org.fastjax.util.Combinations;
 import org.junit.Test;
 import org.slf4j.Logger;

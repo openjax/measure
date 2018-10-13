@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 EasyJAX
+/* Copyright (c) 2014 FastJAX
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,20 +14,14 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.easyjax.measure;
+package org.fastjax.measure;
 
-public final class Mass extends Dimension.Scalar<Dimension.Unit> {
-  public static class Unit extends Dimension.Unit {
-    public static final Unit G = new Unit("g", 1, null);
-    public static final Unit KG = new Unit("kg", 1000, Unit.G);
-    public static final Unit CT = new Unit("ct", 5, Unit.G);
-    
-    protected Unit(final String name, final double factor, final Dimension.Unit basis) {
-      super(name, factor, basis);
-    }
+public final class Velocity extends Dimension.Vector<Angle,Speed> {
+  public Velocity(final Angle i, final Speed j) {
+    super(i, j);
   }
   
-  public Mass(final double value, final Unit unit) {
-    super(value, unit);
+  public Speed value(final Angle angle) {
+    return (Speed)j.replicate(j.value(j.unit) * Math.cos(this.i.value(Angle.Unit.RAD) - angle.value(Angle.Unit.RAD)));
   }
 }

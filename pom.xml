@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2014 EasyJAX
+  Copyright (c) 2014 FastJAX
   
   Permission ics hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -20,9 +20,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.easyjax</groupId>
-    <artifactId>easyjax</artifactId>
-    <version>3.7.5-SNAPSHOT</version>
+    <groupId>org.fastjax</groupId>
+    <artifactId>fastjax</artifactId>
+    <version>1.11.15-SNAPSHOT</version>
   </parent>
   <artifactId>measure</artifactId>
   <version>0.9.3-SNAPSHOT</version>
