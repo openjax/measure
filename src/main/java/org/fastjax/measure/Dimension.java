@@ -19,7 +19,18 @@ package org.fastjax.measure;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Dimension {
+/**
+ * Class containing the {@code Scalar}, {@code Vector}, and {@code Unit}
+ * dimension types.
+ *
+ * @see Dimension.Scalar
+ * @see Dimension.Vector
+ * @see Dimension.Unit
+ */
+public final class Dimension {
+  /**
+   * An abstract dimension representing a unit.
+   */
   protected static abstract class Unit {
     private static final Map<String,Ratio<?,?>> ratios = new HashMap<>();
 
@@ -108,7 +119,7 @@ public abstract class Dimension {
     }
 
     /**
-     * Print the conversion table to stdout
+     * Print the conversion table to stdout.
      */
     public static void printConversionTable() {
       for (final Map.Entry<Unit,Map<Unit,Double>> entry : basisToUnitFactors.entrySet())
@@ -169,6 +180,11 @@ public abstract class Dimension {
     }
   }
 
+  /**
+   * An abstract dimension representing a scalar.
+   *
+   * @param <U> The type parameter for the {@link Unit}.
+   */
   protected static abstract class Scalar<U extends Unit> {
     public static <T extends Unit>double convert(final double value, final T from, final T to) {
       return value * from.getFactor(to);
@@ -213,6 +229,12 @@ public abstract class Dimension {
     }
   }
 
+  /**
+   * An abstract dimension representing a vector.
+   *
+   * @param <I> The type parameter for the lateral component.
+   * @param <J> The type parameter for the transverse component.
+   */
   protected static abstract class Vector<I extends Scalar<? extends Unit>,J extends Scalar<? extends Unit>> {
     /*private static double scalar(final Scalar<?> s, final Unit unit) {
       return s.value * s.unit.getFactor(unit);
@@ -240,5 +262,8 @@ public abstract class Dimension {
     public String toString() {
       return "(" + (i != null ? i.toString() : "null") + ", " + (j != null ? j.toString() : "null") + ")";
     }
+  }
+
+  private Dimension() {
   }
 }

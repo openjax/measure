@@ -1,25 +1,26 @@
 /* Copyright (c) 2014 FastJAX
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * You should have received a copy of The MIT License (MIT) along with this
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
 package org.fastjax.measure;
 
+/**
+ * A scalar dimension representing distance.
+ */
 public final class Distance extends Dimension.Scalar<Dimension.Unit> {
-  /**
-   * Equatorial radius of earth
-   */
+  /** Equatorial radius of earth. */
   public static final Distance R = new Distance(6378.137, Unit.KM);
 
   public static class Unit extends Dimension.Unit {
@@ -33,7 +34,7 @@ public final class Distance extends Dimension.Scalar<Dimension.Unit> {
       super(name, factor, basis);
     }
   }
-  
+
   public Distance(final double value, final Unit unit) {
     super(value, unit);
   }
@@ -43,7 +44,7 @@ public final class Distance extends Dimension.Scalar<Dimension.Unit> {
     final double bearing1 = bearing.value(Angle.Unit.RAD);
     final double lat1 = location.latitude.value(Angle.Unit.RAD);
     final double lon1 = location.longitude.value(Angle.Unit.RAD);
-    
+
     final double lat2 = Math.asin(Math.sin(lat1) * Math.cos(d) + Math.cos(lat1) * Math.sin(d) * Math.cos(bearing1));
     double lon2 = Math.atan2(Math.sin(bearing1) * Math.sin(d) * Math.cos(lat1), Math.cos(d) - Math.sin(lat1) * Math.sin(lat2));
     lon2 = ((lon1 - lon2 + Math.PI) % (2 * Math.PI)) - Math.PI;

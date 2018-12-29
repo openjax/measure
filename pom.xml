@@ -28,9 +28,6 @@
   <version>0.9.3-SNAPSHOT</version>
   <name>${project.groupId}:${project.artifactId}</name>
   <url>https://measure.fastjax.org/</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>org.fastjax</groupId>

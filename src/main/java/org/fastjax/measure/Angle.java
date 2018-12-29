@@ -16,6 +16,9 @@
 
 package org.fastjax.measure;
 
+/**
+ * A scalar dimension representing an angle.
+ */
 public final class Angle extends Dimension.Scalar<Dimension.Unit> {
   public static class Unit extends Dimension.Unit {
     public static final Unit RAD = new Unit("rad", 1, null);
@@ -26,13 +29,13 @@ public final class Angle extends Dimension.Scalar<Dimension.Unit> {
     }
   }
 
-  private static final int[] factors = new int[] {1, 60, 3600};
+  private static final int[] factors = {1, 60, 3600};
 
   private static double parseDMS(final String dms) {
     final int factor = dms.endsWith("S") || dms.endsWith("W") ? -1 : 1;
     final String[] parts = dms.split("[^.0-9]");
     double deg = 0;
-    for (int i = 0; i < factors.length && i < parts.length; i++)
+    for (int i = 0; i < factors.length && i < parts.length; ++i)
       deg += Double.parseDouble(parts[i]) / factors[i];
 
     return factor * deg;

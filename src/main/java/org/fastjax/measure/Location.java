@@ -16,9 +16,13 @@
 
 package org.fastjax.measure;
 
+/**
+ * Class representing a location on the earth, identified by a
+ * {@link #latitude} and a {@link #longitude}.
+ */
 public class Location {
-  public final Angle longitude;
   public final Angle latitude;
+  public final Angle longitude;
 
   public Location(final Angle latitude, final Angle longitude) {
     this.latitude = latitude;
