@@ -1,4 +1,4 @@
-/* Copyright (c) 2018 FastJAX
+/* Copyright (c) 2014 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,22 +14,23 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.measure;
+package org.openjax.classic.measure;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class MetricPrefixTest {
+public class LocationTest {
   @Test
-  public void test() {
-    assertNull(MetricPrefix.of(-27));
-    assertEquals(MetricPrefix.YOCTO, MetricPrefix.of(-24));
-    assertEquals(MetricPrefix.ATTO, MetricPrefix.of(-18));
-    assertNull(MetricPrefix.of(0));
-    assertEquals(MetricPrefix.MEGA, MetricPrefix.of(6));
-    assertEquals(MetricPrefix.GIGA, MetricPrefix.of(9));
-    assertEquals(MetricPrefix.YOTTA, MetricPrefix.of(24));
-    assertNull(MetricPrefix.of(27));
+  public void testLocation() throws Exception {
+    final Angle lat = new Angle(38.898556, Angle.Unit.DEG);
+    final Location l1 = new Location(lat, new Angle(-77.037852, Angle.Unit.DEG));
+    final Location l2 = new Location(lat, new Angle(-77.043934, Angle.Unit.DEG));
+    final Distance expected = new Distance(0.5269164586229639, Distance.Unit.KM);
+    assertEquals(expected, l1.distance(l2));
+
+    final Location location = expected.locate(new Location(lat, new Angle(0, Angle.Unit.DEG)), new Angle(90, Angle.Unit.DEG));
+    final double dlng = 77.037852 - 77.043934;
+    assertEquals(dlng, location.longitude.value(Angle.Unit.DEG), 0.0000000001);
   }
 }

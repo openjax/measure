@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2018 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,21 +14,22 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.measure;
+package org.openjax.classic.measure;
 
 import static org.junit.Assert.*;
 
-import org.fastjax.measure.Angle;
 import org.junit.Test;
 
-public class AngleTest {
+public class MetricPrefixTest {
   @Test
-  public void testDMS() {
-    final Angle latitude = new Angle(3.58324, Angle.Unit.DEG);
-    final Angle longitude = new Angle(4.59202, Angle.Unit.DEG);
-    assertEquals("3˚34'59.664\"", latitude.toDMS());
-    assertEquals("4˚35'31.272\"", longitude.toDMS());
-    assertEquals(latitude, new Angle(latitude.toDMS()));
-    assertEquals(longitude, new Angle(longitude.toDMS()));
+  public void test() {
+    assertNull(MetricPrefix.of(-27));
+    assertEquals(MetricPrefix.YOCTO, MetricPrefix.of(-24));
+    assertEquals(MetricPrefix.ATTO, MetricPrefix.of(-18));
+    assertNull(MetricPrefix.of(0));
+    assertEquals(MetricPrefix.MEGA, MetricPrefix.of(6));
+    assertEquals(MetricPrefix.GIGA, MetricPrefix.of(9));
+    assertEquals(MetricPrefix.YOTTA, MetricPrefix.of(24));
+    assertNull(MetricPrefix.of(27));
   }
 }

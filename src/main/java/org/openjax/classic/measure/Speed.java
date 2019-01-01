@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2014 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,15 +14,15 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.measure;
+package org.openjax.classic.measure;
 
-import org.fastjax.measure.Dimension.Unit;
+import org.openjax.classic.measure.Dimension.Unit;
 
 /**
- * A scalar dimension representing density.
+ * A scalar dimension representing speed.
  */
-public final class Density extends Dimension.Scalar<Unit.Ratio<Mass.Unit,Volume.Unit>> {
-  public Density(final double value, final Unit.Ratio<Mass.Unit,Volume.Unit> unit) {
+public final class Speed extends Dimension.Scalar<Unit.Ratio<Distance.Unit,Time.Unit>> {
+  public Speed(final double value, final Unit.Ratio<Distance.Unit,Time.Unit> unit) {
     super(value, unit);
   }
 }

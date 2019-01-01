@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2014 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,21 +14,20 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.measure;
+package org.openjax.classic.measure;
 
-/**
- * A scalar dimension representing elevation.
- */
-public final class Elevation extends Dimension.Scalar<Dimension.Unit> {
-  public static class Unit extends Distance.Unit {
-    public static final Unit FL = new Unit("fl", 100, Unit.FT);
+import static org.junit.Assert.*;
 
-    protected Unit(final String name, final double factor, final Distance.Unit basis) {
-      super(name, factor, basis);
-    }
-  }
+import org.junit.Test;
 
-  public Elevation(final double value, final Distance.Unit unit) {
-    super(value, unit);
+public class AngleTest {
+  @Test
+  public void testDMS() {
+    final Angle latitude = new Angle(3.58324, Angle.Unit.DEG);
+    final Angle longitude = new Angle(4.59202, Angle.Unit.DEG);
+    assertEquals("3˚34'59.664\"", latitude.toDMS());
+    assertEquals("4˚35'31.272\"", longitude.toDMS());
+    assertEquals(latitude, new Angle(latitude.toDMS()));
+    assertEquals(longitude, new Angle(longitude.toDMS()));
   }
 }
