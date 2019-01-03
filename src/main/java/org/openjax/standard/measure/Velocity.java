@@ -1,4 +1,4 @@
-/* Copyright (c) 2018 OpenJAX
+/* Copyright (c) 2014 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,22 +14,17 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.measure;
+package org.openjax.standard.measure;
 
-import static org.junit.Assert.*;
+/**
+ * A vector dimension representing velocity.
+ */
+public final class Velocity extends Dimension.Vector<Angle,Speed> {
+  public Velocity(final Angle i, final Speed j) {
+    super(i, j);
+  }
 
-import org.junit.Test;
-
-public class MetricPrefixTest {
-  @Test
-  public void test() {
-    assertNull(MetricPrefix.of(-27));
-    assertEquals(MetricPrefix.YOCTO, MetricPrefix.of(-24));
-    assertEquals(MetricPrefix.ATTO, MetricPrefix.of(-18));
-    assertNull(MetricPrefix.of(0));
-    assertEquals(MetricPrefix.MEGA, MetricPrefix.of(6));
-    assertEquals(MetricPrefix.GIGA, MetricPrefix.of(9));
-    assertEquals(MetricPrefix.YOTTA, MetricPrefix.of(24));
-    assertNull(MetricPrefix.of(27));
+  public Speed value(final Angle angle) {
+    return (Speed)j.replicate(j.value(j.unit) * Math.cos(this.i.value(Angle.Unit.RAD) - angle.value(Angle.Unit.RAD)));
   }
 }

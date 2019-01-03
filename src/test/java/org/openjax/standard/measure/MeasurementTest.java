@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.measure;
+package org.openjax.standard.measure;
 
 import static org.junit.Assert.*;
 
@@ -28,8 +28,18 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-import org.openjax.classic.measure.Dimension.Unit;
-import org.openjax.classic.util.Combinations;
+import org.openjax.standard.util.Combinations;
+import org.openjax.standard.measure.Angle;
+import org.openjax.standard.measure.Density;
+import org.openjax.standard.measure.Dimension;
+import org.openjax.standard.measure.Distance;
+import org.openjax.standard.measure.Elevation;
+import org.openjax.standard.measure.Mass;
+import org.openjax.standard.measure.Speed;
+import org.openjax.standard.measure.Time;
+import org.openjax.standard.measure.Velocity;
+import org.openjax.standard.measure.Volume;
+import org.openjax.standard.measure.Dimension.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -14,21 +14,23 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.measure;
+package org.openjax.standard.measure;
 
 /**
- * A scalar dimension representing elevation.
+ * A scalar dimension representing mass.
  */
-public final class Elevation extends Dimension.Scalar<Dimension.Unit> {
-  public static class Unit extends Distance.Unit {
-    public static final Unit FL = new Unit("fl", 100, Unit.FT);
+public final class Mass extends Dimension.Scalar<Dimension.Unit> {
+  public static class Unit extends Dimension.Unit {
+    public static final Unit G = new Unit("g", 1, null);
+    public static final Unit KG = new Unit("kg", 1000, Unit.G);
+    public static final Unit CT = new Unit("ct", 5, Unit.G);
 
-    protected Unit(final String name, final double factor, final Distance.Unit basis) {
+    protected Unit(final String name, final double factor, final Dimension.Unit basis) {
       super(name, factor, basis);
     }
   }
 
-  public Elevation(final double value, final Distance.Unit unit) {
+  public Mass(final double value, final Unit unit) {
     super(value, unit);
   }
 }

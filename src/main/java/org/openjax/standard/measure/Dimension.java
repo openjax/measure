@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.measure;
+package org.openjax.standard.measure;
 
 import java.util.HashMap;
 import java.util.Map;

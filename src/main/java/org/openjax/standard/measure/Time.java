@@ -14,20 +14,25 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.measure;
+package org.openjax.standard.measure;
 
-import static org.junit.Assert.*;
+/**
+ * A scalar dimension representing time.
+ */
+public final class Time extends Dimension.Scalar<Dimension.Unit> {
+  public static class Unit extends Dimension.Unit {
+    public static final Unit SEC = new Unit("sec", 1, null);
+    public static final Unit MIN = new Unit("min", 60, Unit.SEC);
+    public static final Unit HR = new Unit("hr", 60, Unit.MIN);
+    public static final Unit DAY = new Unit("day", 24, Unit.HR);
+    public static final Unit WK = new Unit("wk", 7, Unit.DAY);
 
-import org.junit.Test;
+    protected Unit(final String name, final double factor, final Dimension.Unit basis) {
+      super(name, factor, basis);
+    }
+  }
 
-public class AngleTest {
-  @Test
-  public void testDMS() {
-    final Angle latitude = new Angle(3.58324, Angle.Unit.DEG);
-    final Angle longitude = new Angle(4.59202, Angle.Unit.DEG);
-    assertEquals("3˚34'59.664\"", latitude.toDMS());
-    assertEquals("4˚35'31.272\"", longitude.toDMS());
-    assertEquals(latitude, new Angle(latitude.toDMS()));
-    assertEquals(longitude, new Angle(longitude.toDMS()));
+  public Time(final double value, final Unit unit) {
+    super(value, unit);
   }
 }

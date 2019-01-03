@@ -14,9 +14,9 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.measure;
+package org.openjax.standard.measure;
 
-import org.openjax.classic.measure.Dimension.Unit;
+import org.openjax.standard.measure.Dimension.Unit;
 
 /**
  * A scalar dimension representing speed.

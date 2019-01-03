@@ -14,17 +14,21 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.measure;
+package org.openjax.standard.measure;
 
 /**
- * A vector dimension representing velocity.
+ * A scalar dimension representing elevation.
  */
-public final class Velocity extends Dimension.Vector<Angle,Speed> {
-  public Velocity(final Angle i, final Speed j) {
-    super(i, j);
+public final class Elevation extends Dimension.Scalar<Dimension.Unit> {
+  public static class Unit extends Distance.Unit {
+    public static final Unit FL = new Unit("fl", 100, Unit.FT);
+
+    protected Unit(final String name, final double factor, final Distance.Unit basis) {
+      super(name, factor, basis);
+    }
   }
 
-  public Speed value(final Angle angle) {
-    return (Speed)j.replicate(j.value(j.unit) * Math.cos(this.i.value(Angle.Unit.RAD) - angle.value(Angle.Unit.RAD)));
+  public Elevation(final double value, final Distance.Unit unit) {
+    super(value, unit);
   }
 }
