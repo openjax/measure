@@ -19,7 +19,6 @@ package org.openjax.standard.measure;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import org.openjax.standard.measure.Angle;
 
 public class AngleTest {
   @Test

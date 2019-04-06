@@ -19,9 +19,6 @@ package org.openjax.standard.measure;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import org.openjax.standard.measure.Angle;
-import org.openjax.standard.measure.Distance;
-import org.openjax.standard.measure.Location;
 
 public class LocationTest {
   @Test
