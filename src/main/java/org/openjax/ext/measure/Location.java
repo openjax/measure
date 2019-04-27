@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.standard.measure;
+package org.openjax.ext.measure;
 
 /**
  * Class representing a location on the earth, identified by a

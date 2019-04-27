@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.standard.measure;
+package org.openjax.ext.measure;
 
 /**
  * A scalar dimension representing distance.
