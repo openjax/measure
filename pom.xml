@@ -26,7 +26,10 @@
   </parent>
   <artifactId>measure</artifactId>
   <version>0.9.3-SNAPSHOT</version>
-  <name>${project.groupId}:${project.artifactId}</name>
+  <name>OpenJAX Extensions Measure</name>
+  <description>
+    An API for the expression of vector values containing units of measure.
+  </description>
   <dependencies>
     <dependency>
       <groupId>org.openjax.ext</groupId>
