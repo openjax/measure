@@ -14,15 +14,25 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.ext.measure;
-
-import org.openjax.ext.measure.Dimension.Unit;
+package org.openjax.measure;
 
 /**
- * A scalar dimension representing density.
+ * A scalar dimension representing time.
  */
-public final class Density extends Dimension.Scalar<Unit.Ratio<Mass.Unit,Volume.Unit>> {
-  public Density(final double value, final Unit.Ratio<Mass.Unit,Volume.Unit> unit) {
+public final class Time extends Dimension.Scalar<Dimension.Unit> {
+  public static class Unit extends Dimension.Unit {
+    public static final Unit SEC = new Unit("sec", 1, null);
+    public static final Unit MIN = new Unit("min", 60, Unit.SEC);
+    public static final Unit HR = new Unit("hr", 60, Unit.MIN);
+    public static final Unit DAY = new Unit("day", 24, Unit.HR);
+    public static final Unit WK = new Unit("wk", 7, Unit.DAY);
+
+    protected Unit(final String name, final double factor, final Dimension.Unit basis) {
+      super(name, factor, basis);
+    }
+  }
+
+  public Time(final double value, final Unit unit) {
     super(value, unit);
   }
 }

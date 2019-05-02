@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.ext.measure;
+package org.openjax.measure;
 
 /**
  * Class representing the majority of common prefixes used in the metric system.

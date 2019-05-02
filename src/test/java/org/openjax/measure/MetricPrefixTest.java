@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 OpenJAX
+/* Copyright (c) 2018 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,23 +14,22 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.ext.measure;
+package org.openjax.measure;
 
-/**
- * A scalar dimension representing mass.
- */
-public final class Mass extends Dimension.Scalar<Dimension.Unit> {
-  public static class Unit extends Dimension.Unit {
-    public static final Unit G = new Unit("g", 1, null);
-    public static final Unit KG = new Unit("kg", 1000, Unit.G);
-    public static final Unit CT = new Unit("ct", 5, Unit.G);
+import static org.junit.Assert.*;
 
-    protected Unit(final String name, final double factor, final Dimension.Unit basis) {
-      super(name, factor, basis);
-    }
-  }
+import org.junit.Test;
 
-  public Mass(final double value, final Unit unit) {
-    super(value, unit);
+public class MetricPrefixTest {
+  @Test
+  public void test() {
+    assertNull(MetricPrefix.of(-27));
+    assertEquals(MetricPrefix.YOCTO, MetricPrefix.of(-24));
+    assertEquals(MetricPrefix.ATTO, MetricPrefix.of(-18));
+    assertNull(MetricPrefix.of(0));
+    assertEquals(MetricPrefix.MEGA, MetricPrefix.of(6));
+    assertEquals(MetricPrefix.GIGA, MetricPrefix.of(9));
+    assertEquals(MetricPrefix.YOTTA, MetricPrefix.of(24));
+    assertNull(MetricPrefix.of(27));
   }
 }

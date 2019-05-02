@@ -1,4 +1,4 @@
-/* Copyright (c) 2018 OpenJAX
+/* Copyright (c) 2014 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,22 +14,22 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.ext.measure;
+package org.openjax.measure;
 
-import static org.junit.Assert.*;
+/**
+ * A scalar dimension representing volume.
+ */
+public final class Volume extends Dimension.Scalar<Dimension.Unit> {
+  public static class Unit extends Dimension.Unit {
+    public static final Unit L = new Unit("l", 1, null);
+    public static final Unit ML = new Unit("ml", 0.01, Unit.L);
 
-import org.junit.Test;
+    protected Unit(final String name, final double factor, final Dimension.Unit basis) {
+      super(name, factor, basis);
+    }
+  }
 
-public class MetricPrefixTest {
-  @Test
-  public void test() {
-    assertNull(MetricPrefix.of(-27));
-    assertEquals(MetricPrefix.YOCTO, MetricPrefix.of(-24));
-    assertEquals(MetricPrefix.ATTO, MetricPrefix.of(-18));
-    assertNull(MetricPrefix.of(0));
-    assertEquals(MetricPrefix.MEGA, MetricPrefix.of(6));
-    assertEquals(MetricPrefix.GIGA, MetricPrefix.of(9));
-    assertEquals(MetricPrefix.YOTTA, MetricPrefix.of(24));
-    assertNull(MetricPrefix.of(27));
+  public Volume(final double value, final Unit unit) {
+    super(value, unit);
   }
 }

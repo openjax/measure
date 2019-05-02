@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.ext.measure;
+package org.openjax.measure;
 
 import static org.junit.Assert.*;
 
@@ -28,8 +28,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-import org.openjax.ext.measure.Dimension.Unit;
-import org.openjax.ext.util.Combinations;
+import org.openjax.measure.Dimension.Unit;
+import org.openjax.util.Combinations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
