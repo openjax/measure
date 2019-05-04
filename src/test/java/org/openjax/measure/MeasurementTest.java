@@ -29,7 +29,7 @@ import java.util.Map;
 
 import org.junit.Test;
 import org.openjax.measure.Dimension.Unit;
-import org.openjax.util.Combinations;
+import org.libj.util.Combinations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
