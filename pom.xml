@@ -28,7 +28,7 @@
   <version>0.9.3-SNAPSHOT</version>
   <name>OpenJAX Measure</name>
   <description>
-    An API for the expression of vector values containing units of measure.
+    API for the expression of vector values containing units of measure.
   </description>
   <dependencies>
     <dependency>
