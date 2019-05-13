@@ -1,7 +1,5 @@
 # OpenJAX Measure
 
-> API for vector values containing units of measure.
-
 [![Build Status](https://travis-ci.org/openjax/measure.png)](https://travis-ci.org/openjax/measure)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/measure/badge.svg)](https://coveralls.io/github/openjax/measure)
 [![Javadocs](https://www.javadoc.io/badge/org.openjax/measure.svg)](https://www.javadoc.io/doc/org.openjax/measure)
