@@ -1,4 +1,4 @@
-# OpenJAX Measure
+# Measure
 
 [![Build Status](https://travis-ci.org/openjax/measure.png)](https://travis-ci.org/openjax/measure)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/measure/badge.svg)](https://coveralls.io/github/openjax/measure)
