@@ -23,6 +23,7 @@ public final class Volume extends Dimension.Scalar<Dimension.Unit> {
   public static class Unit extends Dimension.Unit {
     public static final Unit L = new Unit("l", 1, null);
     public static final Unit ML = new Unit("ml", 0.01, Unit.L);
+    public static final Unit GAL = new Unit("gal", 3.785411784, Unit.L);
 
     protected Unit(final String name, final double factor, final Dimension.Unit basis) {
       super(name, factor, basis);

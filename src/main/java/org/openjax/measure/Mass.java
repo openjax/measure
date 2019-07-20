@@ -24,6 +24,7 @@ public final class Mass extends Dimension.Scalar<Dimension.Unit> {
     public static final Unit G = new Unit("g", 1, null);
     public static final Unit KG = new Unit("kg", 1000, Unit.G);
     public static final Unit CT = new Unit("ct", 5, Unit.G);
+    public static final Unit LB = new Unit("lb", 1 / 2.2, Unit.KG);
 
     protected Unit(final String name, final double factor, final Dimension.Unit basis) {
       super(name, factor, basis);
