@@ -205,7 +205,7 @@ public final class Dimension {
         return getClass().getConstructor(double.class, unit.getClass()).newInstance(value, unit);
       }
       catch (final ReflectiveOperationException e) {
-        throw new UnsupportedOperationException(e);
+        throw new IllegalStateException(e);
       }
     }
 
