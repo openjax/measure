@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class containing the {@code Scalar}, {@code Vector}, and {@code Unit}
+ * Class containing the {@link Scalar}, {@link Vector}, and {@link Unit}
  * dimension types.
  *
  * @see Dimension.Scalar

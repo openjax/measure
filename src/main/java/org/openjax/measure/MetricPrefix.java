@@ -22,74 +22,74 @@ package org.openjax.measure;
 public final class MetricPrefix {
   private static final MetricPrefix[] prefixes = new MetricPrefix[49];
 
-  /** The {@code MetricPrefix} constant for "yocto": {@code 10^-24} */
+  /** The {@link MetricPrefix} constant for "yocto": {@code 10^-24} */
   public static final MetricPrefix YOCTO = new MetricPrefix(-24, "yocto", "y");
 
-  /** The {@code MetricPrefix} constant for "zepro": {@code 10^-21} */
+  /** The {@link MetricPrefix} constant for "zepro": {@code 10^-21} */
   public static final MetricPrefix ZEPRO = new MetricPrefix(-21, "zepto", "z");
 
-  /** The {@code MetricPrefix} constant for "atto": {@code 10^-18} */
+  /** The {@link MetricPrefix} constant for "atto": {@code 10^-18} */
   public static final MetricPrefix ATTO = new MetricPrefix(-18, "atto", "a");
 
-  /** The {@code MetricPrefix} constant for "femto": {@code 10^-15} */
+  /** The {@link MetricPrefix} constant for "femto": {@code 10^-15} */
   public static final MetricPrefix FEMTO = new MetricPrefix(-15, "femto", "f");
 
-  /** The {@code MetricPrefix} constant for "pico": {@code 10^-12} */
+  /** The {@link MetricPrefix} constant for "pico": {@code 10^-12} */
   public static final MetricPrefix PICO = new MetricPrefix(-12, "pico", "p");
 
-  /** The {@code MetricPrefix} constant for "nano": {@code 10^-9} */
+  /** The {@link MetricPrefix} constant for "nano": {@code 10^-9} */
   public static final MetricPrefix NANO = new MetricPrefix(-9, "nano", "n");
 
-  /** The {@code MetricPrefix} constant for "micro": {@code 10^-6} */
+  /** The {@link MetricPrefix} constant for "micro": {@code 10^-6} */
   public static final MetricPrefix MICRO = new MetricPrefix(-6, "micro", "μ");
 
-  /** The {@code MetricPrefix} constant for "milli": {@code 10^-3} */
+  /** The {@link MetricPrefix} constant for "milli": {@code 10^-3} */
   public static final MetricPrefix MILLI = new MetricPrefix(-3, "milli", "m");
 
-  /** The {@code MetricPrefix} constant for "centi": {@code 10^-2} */
+  /** The {@link MetricPrefix} constant for "centi": {@code 10^-2} */
   public static final MetricPrefix CENTI = new MetricPrefix(-2, "centi", "c");
 
-  /** The {@code MetricPrefix} constant for "deci": {@code 10^-1} */
+  /** The {@link MetricPrefix} constant for "deci": {@code 10^-1} */
   public static final MetricPrefix DECI = new MetricPrefix(-1, "deci", "d");
 
-  /** The {@code MetricPrefix} constant for "deca": {@code 10^-1} */
+  /** The {@link MetricPrefix} constant for "deca": {@code 10^-1} */
   public static final MetricPrefix DECA = new MetricPrefix(1, "deca", "da");
 
-  /** The {@code MetricPrefix} constant for "hecto": {@code 10^-2} */
+  /** The {@link MetricPrefix} constant for "hecto": {@code 10^-2} */
   public static final MetricPrefix HECTO = new MetricPrefix(2, "hecto", "h");
 
-  /** The {@code MetricPrefix} constant for "kilo": {@code 10^-3} */
+  /** The {@link MetricPrefix} constant for "kilo": {@code 10^-3} */
   public static final MetricPrefix KILO = new MetricPrefix(3, "kilo", "k");
 
-  /** The {@code MetricPrefix} constant for "mega": {@code 10^-6} */
+  /** The {@link MetricPrefix} constant for "mega": {@code 10^-6} */
   public static final MetricPrefix MEGA = new MetricPrefix(6, "mega", "m");
 
-  /** The {@code MetricPrefix} constant for "giga": {@code 10^-9} */
+  /** The {@link MetricPrefix} constant for "giga": {@code 10^-9} */
   public static final MetricPrefix GIGA = new MetricPrefix(9, "giga", "G");
 
-  /** The {@code MetricPrefix} constant for "tera": {@code 10^-12} */
+  /** The {@link MetricPrefix} constant for "tera": {@code 10^-12} */
   public static final MetricPrefix TERA = new MetricPrefix(12, "tera", "T");
 
-  /** The {@code MetricPrefix} constant for "peta": {@code 10^-15} */
+  /** The {@link MetricPrefix} constant for "peta": {@code 10^-15} */
   public static final MetricPrefix PETA = new MetricPrefix(15, "peta", "P");
 
-  /** The {@code MetricPrefix} constant for "exa": {@code 10^-18} */
+  /** The {@link MetricPrefix} constant for "exa": {@code 10^-18} */
   public static final MetricPrefix EXA = new MetricPrefix(18, "exa", "E");
 
-  /** The {@code MetricPrefix} constant for "zetta": {@code 10^-21} */
+  /** The {@link MetricPrefix} constant for "zetta": {@code 10^-21} */
   public static final MetricPrefix ZETTA = new MetricPrefix(21, "zetta", "Z");
 
-  /** The {@code MetricPrefix} constant for "yotta": {@code 10^-24} */
+  /** The {@link MetricPrefix} constant for "yotta": {@code 10^-24} */
   public static final MetricPrefix YOTTA = new MetricPrefix(24, "yotta", "Y");
 
   /**
-   * Returns the {@code MetricPrefix} constant for the specified power, or
-   * {@code null} if a {@code MetricPrefix} for the specified power is not
+   * Returns the {@link MetricPrefix} constant for the specified power, or
+   * {@code null} if a {@link MetricPrefix} for the specified power is not
    * defined.
    *
-   * @param power The power of the desired {@code MetricPrefix}.
-   * @return The {@code MetricPrefix} constant for the specified power, or
-   *         {@code null} if a {@code MetricPrefix} for the specified power is
+   * @param power The power of the desired {@link MetricPrefix}.
+   * @return The {@link MetricPrefix} constant for the specified power, or
+   *         {@code null} if a {@link MetricPrefix} for the specified power is
    *         not defined.
    */
   public static MetricPrefix of(final int power) {
@@ -109,21 +109,27 @@ public final class MetricPrefix {
   }
 
   /**
-   * @return The power represented by this {@code MetricPrefix}.
+   * Returns the power represented by this {@link MetricPrefix}.
+   *
+   * @return The power represented by this {@link MetricPrefix}.
    */
   public int getPower() {
     return this.power;
   }
 
   /**
-   * @return The prefix represented by this {@code MetricPrefix}.
+   * Returns the prefix represented by this {@link MetricPrefix}.
+   *
+   * @return The prefix represented by this {@link MetricPrefix}.
    */
   public String getPrefix() {
     return this.prefix;
   }
 
   /**
-   * @return The symbol represented by this {@code MetricPrefix}.
+   * Returns the symbol represented by this {@link MetricPrefix}.
+   *
+   * @return The symbol represented by this {@link MetricPrefix}.
    */
   public String getSymbol() {
     return this.symbol;
