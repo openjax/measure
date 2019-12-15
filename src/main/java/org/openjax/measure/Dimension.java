@@ -220,7 +220,7 @@ public final class Dimension {
 
     @Override
     public int hashCode() {
-      return (int)Double.doubleToLongBits(value);
+      return 31 + (int)Double.doubleToLongBits(value);
     }
 
     @Override
@@ -255,7 +255,10 @@ public final class Dimension {
 
     @Override
     public int hashCode() {
-      return super.hashCode() + (i != null ? i.hashCode() : -1) + (j != null ? j.hashCode() : -1);
+      int hashCode = super.hashCode();
+      hashCode = 31 * hashCode + (i == null ? 0 : i.hashCode());
+      hashCode = 31 * hashCode + (j == null ? 0 : j.hashCode());
+      return hashCode;
     }
 
     @Override

@@ -44,7 +44,10 @@ public class Location {
 
   @Override
   public int hashCode() {
-    return (latitude != null ? (int)Double.doubleToLongBits(latitude.value(Angle.Unit.RAD)) : -1) + (longitude != null ? (int)Double.doubleToLongBits(longitude.value(Angle.Unit.RAD)) : -1);
+    int hashCode = super.hashCode();
+    hashCode = 31 * hashCode + (latitude == null ? 0 : (int)Double.doubleToLongBits(latitude.value(Angle.Unit.RAD)));
+    hashCode = 31 * hashCode + (longitude == null ? 0 : (int)Double.doubleToLongBits(longitude.value(Angle.Unit.RAD)));
+    return hashCode;
   }
 
   @Override
