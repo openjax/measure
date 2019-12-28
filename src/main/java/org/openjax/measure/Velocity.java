@@ -25,6 +25,6 @@ public final class Velocity extends Dimension.Vector<Angle,Speed> {
   }
 
   public Speed value(final Angle angle) {
-    return (Speed)j.replicate(j.value(j.unit) * Math.cos(this.i.value(Angle.Unit.RAD) - angle.value(Angle.Unit.RAD)));
+    return (Speed)j.replicate(j.value(j.unit) * StrictMath.cos(this.i.value(Angle.Unit.RAD) - angle.value(Angle.Unit.RAD)));
   }
 }

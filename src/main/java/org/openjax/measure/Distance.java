@@ -45,8 +45,8 @@ public final class Distance extends Dimension.Scalar<Dimension.Unit> {
     final double lat1 = location.latitude.value(Angle.Unit.RAD);
     final double lon1 = location.longitude.value(Angle.Unit.RAD);
 
-    final double lat2 = Math.asin(Math.sin(lat1) * Math.cos(d) + Math.cos(lat1) * Math.sin(d) * Math.cos(bearing1));
-    double lon2 = Math.atan2(Math.sin(bearing1) * Math.sin(d) * Math.cos(lat1), Math.cos(d) - Math.sin(lat1) * Math.sin(lat2));
+    final double lat2 = StrictMath.asin(StrictMath.sin(lat1) * StrictMath.cos(d) + StrictMath.cos(lat1) * StrictMath.sin(d) * StrictMath.cos(bearing1));
+    double lon2 = StrictMath.atan2(StrictMath.sin(bearing1) * StrictMath.sin(d) * StrictMath.cos(lat1), StrictMath.cos(d) - StrictMath.sin(lat1) * StrictMath.sin(lat2));
     lon2 = ((lon1 - lon2 + Math.PI) % (2 * Math.PI)) - Math.PI;
     return new Location(new Angle(lat2, Angle.Unit.RAD), new Angle(lon2, Angle.Unit.RAD));
   }

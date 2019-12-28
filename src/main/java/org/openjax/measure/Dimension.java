@@ -18,6 +18,8 @@ package org.openjax.measure;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Class containing the {@link Scalar}, {@link Vector}, and {@link Unit}
@@ -31,8 +33,8 @@ public final class Dimension {
   /**
    * An abstract dimension representing a unit.
    */
-  protected static abstract class Unit {
-    private static final Map<String,Ratio<?,?>> ratios = new HashMap<>();
+  protected abstract static class Unit {
+    private static final ConcurrentHashMap<String,Ratio<?,?>> ratios = new ConcurrentHashMap<>();
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static <N extends Unit,D extends Unit>Ratio<N,D> ratio(final N numerator, final D denominator) {
@@ -41,7 +43,7 @@ public final class Dimension {
       if (unit != null)
         return unit;
 
-      synchronized (ratios) {
+      synchronized (name.intern()) {
         unit = ratios.get(name);
         if (unit != null)
           return unit;
@@ -65,7 +67,7 @@ public final class Dimension {
       }
     }
 
-    private static final Map<String,Product<?,?>> products = new HashMap<>();
+    private static final ConcurrentHashMap<String,Product<?,?>> products = new ConcurrentHashMap<>();
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static <F extends Unit,S extends Unit>Product<F,S> produc(final F first, final S second) {
@@ -74,7 +76,7 @@ public final class Dimension {
       if (unit != null)
         return unit;
 
-      synchronized (products) {
+      synchronized (name.intern()) {
         unit = products.get(name);
         if (unit != null)
           return unit;
@@ -98,7 +100,7 @@ public final class Dimension {
       }
     }
 
-    private static final Map<Unit,Map<Unit,Double>> basisToUnitFactors = new HashMap<>();
+    private static final ConcurrentHashMap<Unit,Map<Unit,Double>> basisToUnitFactors = new ConcurrentHashMap<>();
 
     private static Map<Unit,Double> register(final Unit from, final Unit to, final double factor) {
       Map<Unit,Double> unitToFactor = basisToUnitFactors.get(to);
@@ -128,7 +130,7 @@ public final class Dimension {
     }
 
     // FIXME: This is not used yet
-    private static final Map<Class<?>,Unit> defaults = new HashMap<>();
+    private static final HashMap<Class<?>,Unit> defaults = new HashMap<>();
 
     protected final String name;
     protected final double factor;
@@ -185,7 +187,7 @@ public final class Dimension {
    *
    * @param <U> The type parameter for the {@link Unit}.
    */
-  protected static abstract class Scalar<U extends Unit> {
+  protected abstract static class Scalar<U extends Unit> {
     public static <T extends Unit>double convert(final double value, final T from, final T to) {
       return value * from.getFactor(to);
     }
@@ -235,7 +237,7 @@ public final class Dimension {
    * @param <I> The type parameter for the lateral component.
    * @param <J> The type parameter for the transverse component.
    */
-  protected static abstract class Vector<I extends Scalar<? extends Unit>,J extends Scalar<? extends Unit>> {
+  protected abstract static class Vector<I extends Scalar<? extends Unit>,J extends Scalar<? extends Unit>> {
     /*private static double scalar(final Scalar<?> s, final Unit unit) {
       return s.value * s.unit.getFactor(unit);
     }*/
@@ -250,7 +252,7 @@ public final class Dimension {
 
     @Override
     public boolean equals(final Object obj) {
-      return this == obj || (obj instanceof Vector && super.equals(obj) && (i != null ? i.equals(((Vector<?,?>)obj).i) : ((Vector<?,?>)obj).j == null) && (j != null ? j.equals(((Vector<?,?>)obj).j) : ((Vector<?,?>)obj).j == null));
+      return this == obj || (obj instanceof Vector && super.equals(obj) && (i != null ? i.equals(((Vector<?,?>)obj).i) : ((Vector<?,?>)obj).j == null) && Objects.equals(j, ((Vector<?,?>)obj).j));
     }
 
     @Override

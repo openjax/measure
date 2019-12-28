@@ -16,6 +16,8 @@
 
 package org.openjax.measure;
 
+import java.util.Objects;
+
 /**
  * Class representing a location on the earth, identified by a
  * {@link #latitude} and a {@link #longitude}.
@@ -32,14 +34,14 @@ public class Location {
   public Distance distance(final Location location) {
     final double dLat = location.latitude.value(Angle.Unit.RAD) - latitude.value(Angle.Unit.RAD);
     final double dLon = location.longitude.value(Angle.Unit.RAD) - longitude.value(Angle.Unit.RAD);
-    final double a = Math.pow(Math.sin(dLat / 2), 2) + Math.cos(latitude.value(Angle.Unit.RAD)) * Math.cos(location.latitude.value(Angle.Unit.RAD)) * Math.pow(Math.sin(dLon / 2), 2);
-    final double d = 2 * Distance.R.value(Distance.Unit.KM) * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    final double a = StrictMath.pow(StrictMath.sin(dLat / 2), 2) + StrictMath.cos(latitude.value(Angle.Unit.RAD)) * StrictMath.cos(location.latitude.value(Angle.Unit.RAD)) * StrictMath.pow(StrictMath.sin(dLon / 2), 2);
+    final double d = 2 * Distance.R.value(Distance.Unit.KM) * StrictMath.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return new Distance(d, Distance.Unit.KM);
   }
 
   @Override
   public boolean equals(final Object obj) {
-    return obj == this || (obj instanceof Location && (latitude != null ? latitude.equals(((Location)obj).latitude) : ((Location)obj).latitude == null) && (longitude != null ? longitude.equals(((Location)obj).longitude) : ((Location)obj).longitude == null));
+    return obj == this || (obj instanceof Location && Objects.equals(latitude, ((Location)obj).latitude) && Objects.equals(longitude, ((Location)obj).longitude));
   }
 
   @Override
