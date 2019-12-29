@@ -91,6 +91,9 @@ public class MeasurementTest {
       }
     }
 
+    if (constructor == null)
+      throw new IllegalStateException("Did not find the expected constructor");
+
     final Dimension.Unit[][] allUnits = new Dimension.Unit[unitClasses.length][];
     int i = 0;
     for (final Class<?> unitClass : unitClasses)
