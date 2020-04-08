@@ -28,8 +28,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-import org.openjax.measure.Dimension.Unit;
 import org.libj.util.Combinations;
+import org.openjax.measure.Dimension.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
