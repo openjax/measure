@@ -70,7 +70,7 @@ public final class Dimension {
     private static final ConcurrentHashMap<String,Product<?,?>> products = new ConcurrentHashMap<>();
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public static <F extends Unit,S extends Unit>Product<F,S> produc(final F first, final S second) {
+    public static <F extends Unit,S extends Unit>Product<?,?> produc(final F first, final S second) {
       final String name = first + "/" + second;
       Product unit = products.get(name);
       if (unit != null)
@@ -95,7 +95,7 @@ public final class Dimension {
         this.second = second;
       }
 
-      protected double getFactor(final Product<F,S> basis) {
+      protected double getFactor(final Product<?,?> basis) {
         return getFactor((Unit)basis) * getFactor(basis.second);
       }
     }
@@ -257,9 +257,13 @@ public final class Dimension {
 
     @Override
     public int hashCode() {
-      int hashCode = super.hashCode();
-      hashCode = 31 * hashCode + (i == null ? 0 : i.hashCode());
-      hashCode = 31 * hashCode + (j == null ? 0 : j.hashCode());
+      int hashCode = 1;
+      if (i != null)
+        hashCode = 31 * hashCode + i.hashCode();
+
+      if (j != null)
+        hashCode = 31 * hashCode + j.hashCode();
+
       return hashCode;
     }
 

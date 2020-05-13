@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-import org.libj.util.Combinations;
+import org.libj.util.Groups;
 import org.openjax.measure.Dimension.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -100,7 +100,7 @@ public class MeasurementTest {
       allUnits[i++] = getUnits(unitClass);
 
     final double value = 100;
-    Dimension.Unit[][] combinations = Combinations.combine(allUnits);
+    Dimension.Unit[][] combinations = Groups.combine(allUnits);
     for (final Dimension.Unit[] from : combinations) {
       final Class<?> unitType = constructor.getParameterTypes()[1];
       final Method factoryMethod = getFactoryMethod(unitType);

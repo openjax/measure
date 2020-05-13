@@ -46,9 +46,13 @@ public class Location {
 
   @Override
   public int hashCode() {
-    int hashCode = super.hashCode();
-    hashCode = 31 * hashCode + (latitude == null ? 0 : (int)Double.doubleToLongBits(latitude.value(Angle.Unit.RAD)));
-    hashCode = 31 * hashCode + (longitude == null ? 0 : (int)Double.doubleToLongBits(longitude.value(Angle.Unit.RAD)));
+    int hashCode = 1;
+    if (latitude != null)
+      hashCode = 31 * hashCode + (int)Double.doubleToLongBits(latitude.value(Angle.Unit.RAD));
+
+    if (longitude != null)
+      hashCode = 31 * hashCode + (int)Double.doubleToLongBits(longitude.value(Angle.Unit.RAD));
+
     return hashCode;
   }
 
