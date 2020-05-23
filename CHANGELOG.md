@@ -1,6 +1,8 @@
 # Changes by Version
 
-## [v0.9.5](https://github.com/openjax/measure/compare/df26843f438bdc9a45b63af632abd5f1a0cc07f6..HEAD) (2020-05-23)
+## [v0.9.6-SNAPSHOT](https://github.com/openjax/measure/compare/cf160cc4911f5a60c36e3da6ec1d7fdc9f71a4b8..HEAD)
+
+## [v0.9.5](https://github.com/openjax/measure/compare/df26843f438bdc9a45b63af632abd5f1a0cc07f6..cf160cc4911f5a60c36e3da6ec1d7fdc9f71a4b8) (2020-05-23)
 * Apply concurrency considerations to `ratios` and `factors` in `Unit`.
 * Use `StrictMath` instead of `Math`.
 * Improve javadocs.
