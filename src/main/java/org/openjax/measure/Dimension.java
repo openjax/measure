@@ -69,7 +69,7 @@ public final class Dimension {
 
     private static final ConcurrentHashMap<String,Product<?,?>> products = new ConcurrentHashMap<>();
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings("rawtypes")
     public static <F extends Unit,S extends Unit>Product<?,?> produc(final F first, final S second) {
       final String name = first + "/" + second;
       Product unit = products.get(name);
