@@ -40,16 +40,8 @@ public final class Dimension {
     public static <N extends Unit,D extends Unit>Ratio<N,D> ratio(final N numerator, final D denominator) {
       final String name = numerator + "/" + denominator;
       Ratio unit = ratios.get(name);
-      if (unit != null)
-        return unit;
-
-      synchronized (name.intern()) {
-        unit = ratios.get(name);
-        if (unit != null)
-          return unit;
-
+      if (unit == null)
         ratios.put(name, unit = new Ratio<>(name, numerator.factor / denominator.factor, numerator, denominator));
-      }
 
       return unit;
     }
@@ -73,16 +65,8 @@ public final class Dimension {
     public static <F extends Unit,S extends Unit>Product<?,?> produc(final F first, final S second) {
       final String name = first + "/" + second;
       Product unit = products.get(name);
-      if (unit != null)
-        return unit;
-
-      synchronized (name.intern()) {
-        unit = products.get(name);
-        if (unit != null)
-          return unit;
-
+      if (unit == null)
         products.put(name, unit = new Product<>(name, first.factor / second.factor, first, second));
-      }
 
       return unit;
     }
