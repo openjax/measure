@@ -30,7 +30,7 @@ public class LocationTest {
     assertEquals(expected, l1.distance(l2));
 
     final Location location = expected.locate(new Location(lat, new Angle(0, Angle.Unit.DEG)), new Angle(90, Angle.Unit.DEG));
-    final double dlng = 77.037852 - 77.043934;
-    assertEquals(dlng, location.longitude.value(Angle.Unit.DEG), 0.0000000001);
+    final double dlon = 77.037852 - 77.043934;
+    assertEquals(dlon, location.longitude.value(Angle.Unit.DEG), 0.0000000001);
   }
 }
