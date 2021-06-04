@@ -100,7 +100,7 @@ public class MeasurementTest {
       allUnits[i++] = getUnits(unitClass);
 
     final double value = 100;
-    final Dimension.Unit[][] combinations = Groups.combine(allUnits);
+    final Dimension.Unit[][] combinations = Groups.permute(allUnits);
     for (final Dimension.Unit[] from : combinations) {
       final Class<?> unitType = constructor.getParameterTypes()[1];
       final Method factoryMethod = getFactoryMethod(unitType);
