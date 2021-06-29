@@ -1,6 +1,6 @@
 # Measure
 
-[![Build Status](https://github.com/openjax/measure/workflows/build.yml/badge.svg)](https://github.com/openjax/measure/actions/workflows/build.yml)
+[![Build Status](https://github.com/openjax/measure/actions/workflows/build.yml/badge.svg)](https://github.com/openjax/measure/actions/workflows/build.yml)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/measure/badge.svg)](https://coveralls.io/github/openjax/measure)
 [![Javadocs](https://www.javadoc.io/badge/org.openjax/measure.svg)](https://www.javadoc.io/doc/org.openjax/measure)
 [![Released Version](https://img.shields.io/maven-central/v/org.openjax/measure.svg)](https://mvnrepository.com/artifact/org.openjax/measure)
