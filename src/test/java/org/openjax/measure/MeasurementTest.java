@@ -83,7 +83,7 @@ public class MeasurementTest {
   private static void assertMeasurementUnits(final Class<?> dimensionClass, final Class<?> ... unitClasses) throws Exception {
     Constructor<?> constructor = null;
     Constructor<?>[] constructors = dimensionClass.getConstructors();
-    for (int i = 0; i < constructors.length; i++) {
+    for (int i = 0; i < constructors.length; ++i) {
       final Class<?>[] parameterTypes = constructors[i].getParameterTypes();
       if (parameterTypes.length > 1 && parameterTypes[0] == double.class && Dimension.Unit.class.isAssignableFrom(parameterTypes[1])) {
         constructor = constructors[i];
