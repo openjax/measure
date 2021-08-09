@@ -21,6 +21,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.libj.lang.Assertions;
+
 /**
  * Class containing the {@link Scalar}, {@link Vector}, and {@link Unit}
  * dimension types.
@@ -139,10 +141,7 @@ public final class Dimension {
     }
 
     protected double getFactor(final Unit basis) {
-      if (basis == null)
-        throw new IllegalArgumentException("basis == null");
-
-      if (this == basis)
+      if (this == Assertions.assertNotNull(basis, "basis == null"))
         return 1;
 
       Map<Unit,Double> unitToFactor = basisToUnitFactors.get(basis);
@@ -180,10 +179,8 @@ public final class Dimension {
     protected final U unit;
 
     protected Scalar(final double value, final U unit) {
-      this.unit = unit;
+      this.unit = Assertions.assertNotNull(unit, "unit == null");
       this.value = value;
-      if (unit == null)
-        throw new IllegalArgumentException("unit == null");
     }
 
     protected Scalar<U> replicate(final double value) {
