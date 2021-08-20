@@ -30,17 +30,26 @@
   <description>
     API for the expression of vector values containing units of measure.
   </description>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.openjax.xml</groupId>
+        <artifactId>xml-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
-    <dependency>
-      <groupId>org.libj</groupId>
-      <artifactId>math</artifactId>
-      <version>0.6.7-SNAPSHOT</version>
-    </dependency>
     <dependency>
       <groupId>org.libj</groupId>
       <artifactId>test</artifactId>
       <version>0.7.2-SNAPSHOT</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.libj</groupId>
+      <artifactId>math</artifactId>
+      <version>0.6.7-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>
