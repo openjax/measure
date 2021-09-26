@@ -16,12 +16,12 @@
 
 package org.openjax.measure;
 
+import static org.libj.lang.Assertions.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
-
-import org.libj.lang.Assertions;
 
 /**
  * Class containing the {@link Scalar}, {@link Vector}, and {@link Unit}
@@ -141,7 +141,7 @@ public final class Dimension {
     }
 
     protected double getFactor(final Unit basis) {
-      if (this == Assertions.assertNotNull(basis, "basis == null"))
+      if (this == assertNotNull(basis, "basis == null"))
         return 1;
 
       Map<Unit,Double> unitToFactor = basisToUnitFactors.get(basis);
@@ -179,7 +179,7 @@ public final class Dimension {
     protected final U unit;
 
     protected Scalar(final double value, final U unit) {
-      this.unit = Assertions.assertNotNull(unit, "unit == null");
+      this.unit = assertNotNull(unit, "unit is null");
       this.value = value;
     }
 
