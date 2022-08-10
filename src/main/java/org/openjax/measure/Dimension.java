@@ -98,7 +98,7 @@ public final class Dimension {
     }
 
     private static void cascade(final Map<Unit,Double> unitToFactor, final Unit from, final double factor) {
-      for (final Map.Entry<Unit,Double> entry : unitToFactor.entrySet()) {
+      for (final Map.Entry<Unit,Double> entry : unitToFactor.entrySet()) { // [S]
         if (entry.getKey() != from) {
           register(from, entry.getKey(), from.factor / entry.getValue());
           register(entry.getKey(), from, entry.getValue() / from.factor);
@@ -110,8 +110,8 @@ public final class Dimension {
      * Print the conversion table to stdout.
      */
     public static void printConversionTable() {
-      for (final Map.Entry<Unit,Map<Unit,Double>> entry : basisToUnitFactors.entrySet())
-        for (final Map.Entry<Unit,Double> entry2 : entry.getValue().entrySet())
+      for (final Map.Entry<Unit,Map<Unit,Double>> entry : basisToUnitFactors.entrySet()) // [S]
+        for (final Map.Entry<Unit,Double> entry2 : entry.getValue().entrySet()) // [S]
           System.out.println("1 " + entry2.getKey().name + " = " + entry2.getValue() + " * " + entry.getKey().name);
     }
 

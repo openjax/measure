@@ -35,7 +35,7 @@ public final class Angle extends Dimension.Scalar<Dimension.Unit> {
     final int factor = dms.endsWith("S") || dms.endsWith("W") ? -1 : 1;
     final String[] parts = dms.split("[^.0-9]");
     double deg = 0;
-    for (int i = 0; i < factors.length && i < parts.length; ++i)
+    for (int i = 0; i < factors.length && i < parts.length; ++i) // [A]
       deg += Double.parseDouble(parts[i]) / factors[i];
 
     return factor * deg;

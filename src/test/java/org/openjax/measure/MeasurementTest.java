@@ -39,7 +39,7 @@ public class MeasurementTest {
   private static Dimension.Unit[] getUnits(final Class<?> unitClass) throws Exception {
     final List<Dimension.Unit> units = new ArrayList<>();
     final Field[] fields = unitClass.getDeclaredFields();
-    for (final Field field : fields) {
+    for (final Field field : fields) { // [A]
       field.setAccessible(true);
       if (Modifier.isStatic(field.getModifiers()) && Dimension.Unit.class.isAssignableFrom(field.getType()))
         units.add((Dimension.Unit)field.get(null));
@@ -69,7 +69,7 @@ public class MeasurementTest {
       if ((factoryMethod = unitFactoryMethods.get(unitClass)) != null)
         return factoryMethod;
 
-      for (final Method method : unitClass.getDeclaringClass().getDeclaredMethods()) {
+      for (final Method method : unitClass.getDeclaringClass().getDeclaredMethods()) { // [A]
         if (Modifier.isStatic(method.getModifiers()) && method.getReturnType() == unitClass) {
           unitFactoryMethods.put(unitClass, factoryMethod = method);
           break;
@@ -83,7 +83,7 @@ public class MeasurementTest {
   private static void assertMeasurementUnits(final Class<?> dimensionClass, final Class<?> ... unitClasses) throws Exception {
     Constructor<?> constructor = null;
     Constructor<?>[] constructors = dimensionClass.getConstructors();
-    for (int i = 0; i < constructors.length; ++i) {
+    for (int i = 0; i < constructors.length; ++i) { // [A]
       final Class<?>[] parameterTypes = constructors[i].getParameterTypes();
       if (parameterTypes.length > 1 && parameterTypes[0] == double.class && Dimension.Unit.class.isAssignableFrom(parameterTypes[1])) {
         constructor = constructors[i];
@@ -96,19 +96,19 @@ public class MeasurementTest {
 
     final Dimension.Unit[][] allUnits = new Dimension.Unit[unitClasses.length][];
     int i = 0;
-    for (final Class<?> unitClass : unitClasses)
+    for (final Class<?> unitClass : unitClasses) // [A]
       allUnits[i++] = getUnits(unitClass);
 
     final double value = 100;
     final Dimension.Unit[][] combinations = Groups.permute(allUnits);
-    for (final Dimension.Unit[] from : combinations) {
+    for (final Dimension.Unit[] from : combinations) { // [A]
       final Class<?> unitType = constructor.getParameterTypes()[1];
       final Method factoryMethod = getFactoryMethod(unitType);
       final Object[] fromArgs = factoryMethod != null ? new Object[] {factoryMethod.invoke(null, (Object[])from)} : from;
       final Object measurement = constructor.newInstance(toArgs(value, fromArgs));
-      for (final Dimension.Unit[] to : combinations) {
+      for (final Dimension.Unit[] to : combinations) { // [A]
         final Method[] methods = measurement.getClass().getMethods();
-        for (final Method method : methods) {
+        for (final Method method : methods) { // [A]
           if ("value".equals(method.getName())) {
             final Object[] toArgs = factoryMethod != null ? new Object[] {factoryMethod.invoke(null, (Object[])to)} : to;
             final double scalar = (double)method.invoke(measurement, toArgs);
