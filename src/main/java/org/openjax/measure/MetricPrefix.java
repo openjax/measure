@@ -83,14 +83,12 @@ public final class MetricPrefix {
   public static final MetricPrefix YOTTA = new MetricPrefix(24, "yotta", "Y");
 
   /**
-   * Returns the {@link MetricPrefix} constant for the specified power, or
-   * {@code null} if a {@link MetricPrefix} for the specified power is not
-   * defined.
+   * Returns the {@link MetricPrefix} constant for the specified power, or {@code null} if a {@link MetricPrefix} for the specified
+   * power is not defined.
    *
    * @param power The power of the desired {@link MetricPrefix}.
-   * @return The {@link MetricPrefix} constant for the specified power, or
-   *         {@code null} if a {@link MetricPrefix} for the specified power is
-   *         not defined.
+   * @return The {@link MetricPrefix} constant for the specified power, or {@code null} if a {@link MetricPrefix} for the specified
+   *         power is not defined.
    */
   public static MetricPrefix of(final int power) {
     return prefixes[0].power <= power && power <= prefixes[prefixes.length - 1].power ? prefixes[power - prefixes[0].power] : null;

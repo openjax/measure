@@ -19,8 +19,7 @@ package org.openjax.measure;
 import java.util.Objects;
 
 /**
- * Class representing a location on the earth, identified by a
- * {@link #latitude} and a {@link #longitude}.
+ * Class representing a location on the earth, identified by a {@link #latitude} and a {@link #longitude}.
  */
 public class Location {
   public final Angle latitude;

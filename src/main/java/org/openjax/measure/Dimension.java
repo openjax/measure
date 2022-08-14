@@ -24,8 +24,7 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Class containing the {@link Scalar}, {@link Vector}, and {@link Unit}
- * dimension types.
+ * Class containing the {@link Scalar}, {@link Vector}, and {@link Unit} dimension types.
  *
  * @see Dimension.Scalar
  * @see Dimension.Vector
