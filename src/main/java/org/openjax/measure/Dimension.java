@@ -113,7 +113,7 @@ public final class Dimension {
      */
     public static void printConversionTable() {
       if (basisToUnitFactors.size() > 0)
-        for (final Map.Entry<Unit,Map<Unit,Double>> entry : basisToUnitFactors.entrySet()) {
+        for (final Map.Entry<Unit,Map<Unit,Double>> entry : basisToUnitFactors.entrySet()) { // [S]
           final Map<Unit,Double> value = entry.getValue();
           if (value.size() > 0)
             for (final Map.Entry<Unit,Double> entry2 : value.entrySet()) // [S]
