@@ -115,7 +115,7 @@ public class MeasurementTest {
             final Object measurement2 = constructor.newInstance(toArgs(scalar, toArgs));
             final double back = (double)method.invoke(measurement2, fromArgs);
             assertEquals(value, back, 0.000001);
-            logger.info(measurement + " = " + measurement2 + " = " + constructor.newInstance(toArgs(back, fromArgs)) + " [OK]");
+            if (logger.isInfoEnabled()) logger.info(measurement + " = " + measurement2 + " = " + constructor.newInstance(toArgs(back, fromArgs)) + " [OK]");
           }
         }
       }
@@ -133,6 +133,6 @@ public class MeasurementTest {
     assertMeasurementUnits(Volume.class, Volume.Unit.class);
     assertMeasurementUnits(Density.class, Mass.Unit.class, Volume.Unit.class);
     final Velocity v = new Velocity(new Angle(45, Angle.Unit.DEG), new Speed(100, Unit.ratio(Distance.Unit.KM, Time.Unit.HR)));
-    logger.info(v.value(new Angle(-45, Angle.Unit.DEG)).toString());
+    if (logger.isInfoEnabled()) logger.info(v.value(new Angle(-45, Angle.Unit.DEG)).toString());
   }
 }
