@@ -147,7 +147,7 @@ public final class Dimension {
     }
 
     protected double getFactor(final Unit basis) {
-      if (this == assertNotNull(basis, "basis == null"))
+      if (this == basis)
         return 1;
 
       Map<Unit,Double> unitToFactor = basisToUnitFactors.get(basis);
