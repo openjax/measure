@@ -16,8 +16,6 @@
 
 package org.openjax.measure;
 
-import static org.libj.lang.Assertions.*;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -185,7 +183,7 @@ public final class Dimension {
     protected final U unit;
 
     protected Scalar(final double value, final U unit) {
-      this.unit = assertNotNull(unit, "unit is null");
+      this.unit = Objects.requireNonNull(unit, "unit is null");
       this.value = value;
     }
 
