@@ -36,7 +36,7 @@ public final class Dimension {
     private static final ConcurrentHashMap<String,Ratio<?,?>> ratios = new ConcurrentHashMap<>();
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public static <N extends Unit,D extends Unit>Ratio<N,D> ratio(final N numerator, final D denominator) {
+    public static <N extends Unit,D extends Unit> Ratio<N,D> ratio(final N numerator, final D denominator) {
       final String name = numerator + "/" + denominator;
       Ratio unit = ratios.get(name);
       if (unit == null)
@@ -61,7 +61,7 @@ public final class Dimension {
     private static final ConcurrentHashMap<String,Product<?,?>> products = new ConcurrentHashMap<>();
 
     @SuppressWarnings("rawtypes")
-    public static <F extends Unit,S extends Unit>Product<?,?> produc(final F first, final S second) {
+    public static <F extends Unit,S extends Unit> Product<?,?> produc(final F first, final S second) {
       final String name = first + "/" + second;
       Product unit = products.get(name);
       if (unit == null)
@@ -175,7 +175,7 @@ public final class Dimension {
    * @param <U> The type parameter for the {@link Unit}.
    */
   protected abstract static class Scalar<U extends Unit> {
-    public static <T extends Unit>double convert(final double value, final T from, final T to) {
+    public static <T extends Unit> double convert(final double value, final T from, final T to) {
       return value * from.getFactor(to);
     }
 
@@ -223,9 +223,9 @@ public final class Dimension {
    * @param <J> The type parameter for the transverse component.
    */
   protected abstract static class Vector<I extends Scalar<? extends Unit>,J extends Scalar<? extends Unit>> {
-    /*private static double scalar(final Scalar<?> s, final Unit unit) {
-      return s.value * s.unit.getFactor(unit);
-    }*/
+    /*
+     * private static double scalar(final Scalar<?> s, final Unit unit) { return s.value * s.unit.getFactor(unit); }
+     */
 
     public final I i;
     public final J j;
