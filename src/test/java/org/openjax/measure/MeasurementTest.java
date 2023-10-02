@@ -24,7 +24,6 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
@@ -37,7 +36,7 @@ public class MeasurementTest {
   private static final Logger logger = LoggerFactory.getLogger(MeasurementTest.class);
 
   private static Dimension.Unit[] getUnits(final Class<?> unitClass) throws Exception {
-    final List<Dimension.Unit> units = new ArrayList<>();
+    final ArrayList<Dimension.Unit> units = new ArrayList<>();
     final Field[] fields = unitClass.getDeclaredFields();
     for (final Field field : fields) { // [A]
       field.setAccessible(true);
