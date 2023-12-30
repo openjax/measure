@@ -112,7 +112,7 @@ public final class MetricPrefix {
    * @return The power represented by this {@link MetricPrefix}.
    */
   public int getPower() {
-    return this.power;
+    return power;
   }
 
   /**
@@ -121,7 +121,7 @@ public final class MetricPrefix {
    * @return The prefix represented by this {@link MetricPrefix}.
    */
   public String getPrefix() {
-    return this.prefix;
+    return prefix;
   }
 
   /**
@@ -130,7 +130,7 @@ public final class MetricPrefix {
    * @return The symbol represented by this {@link MetricPrefix}.
    */
   public String getSymbol() {
-    return this.symbol;
+    return symbol;
   }
 
   @Override
